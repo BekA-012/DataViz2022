@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css"></link>
+    <title>My Histogram</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+
+</head>
+<body>
+<h1>Histogram</h1>
+<div class="absolute-div">
+    <div class="flex-div">
+        <button onclick="drawHistogram(getLow)">TemperatureLow</button>
+        <button onclick="drawHistogram(getHigh)">TemperatureHigh</button>
+        <button onclick="drawHistogram(getMin)">TemperatureMin</button>
+        <button onclick="drawHistogram(getMax)">TemperatureMax</button>
+
+    </div>
+    <div id="wrapper" class="wrapper">
+        <script src="dynamic_hist.js"></script>
+    </div>
+</div>
+
+
+</body>
+</html>
