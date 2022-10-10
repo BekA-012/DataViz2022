@@ -1,10 +1,7 @@
 async function drawHistogram(metricAccessor) {
 
-    // 1. Access data
     const dataset = await d3.json("../my_weather_data.json")
     const yAccessor = d => d.length
-
-    // 2. Create chart dimensions
 
     const width = 700
     let dimensions = {
@@ -20,7 +17,6 @@ async function drawHistogram(metricAccessor) {
     dimensions.boundedWidth = dimensions.width - dimensions.margin.left - dimensions.margin.right
     dimensions.boundedHeight = dimensions.height - dimensions.margin.top - dimensions.margin.bottom
 
-    // 3. Draw canvas
 
     const wrapper = d3.select("#wrapper")
         .append("svg")
@@ -30,7 +26,6 @@ async function drawHistogram(metricAccessor) {
     const bounds = wrapper.append("g")
         .style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
 
-    // 4. Create scales
 
     const xScale = d3.scaleLinear()
         .domain(d3.extent(dataset, metricAccessor))
@@ -50,7 +45,6 @@ async function drawHistogram(metricAccessor) {
         .range([dimensions.boundedHeight, 20])
         .nice()
 
-    // 5. Draw data
 
     const binGroups = bounds.selectAll("g")
         .data(bins)
@@ -80,17 +74,15 @@ async function drawHistogram(metricAccessor) {
         .style("font-size", "12px")
         .style("font-family", "sans-serif")
 
-    // 6. Draw peripherals
 
     var y = d3.scaleLinear().domain([0, d3.max(bins, function (d) {
         return d.length;
     })]).range([dimensions.boundedHeight, 20])
-    // add y
+  
     bounds.append("g")
         .attr("transform", "translate(" + 75 + "," + 0 + ")")
         .call(d3.axisLeft(y));
 
-    //add text Count
     bounds.append('text')
         .attr("text-anchor", "end")
         .attr("class", "y label")
@@ -99,7 +91,6 @@ async function drawHistogram(metricAccessor) {
         .attr("transform", "rotate(-90)")
         .text("Count");
 
-    //add text Temperature
     bounds.append('text')
         .attr("text-anchor", "end")
         .attr("class", "x label")
