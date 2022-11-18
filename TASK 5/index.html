@@ -7,9 +7,45 @@
   <script src="graph.js"></script>
   <link rel="stylesheet" href="network.css">
 </head>
+<style>
+  .node-text {
+    width: 50px;
+    height: 16px;
+  }
+  .node-text body {
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .node-text span {
+    width: fit-content;
+    height: fit-content;
+    font-size: 14px;
+    text-anchor: middle;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+  .tip {
+    position: fixed;
+    color: black;
+    top: 0;
+    pointer-events: none;
+  }
+</style>
 <body>
 <div id="wrapper">
-
+  <h1>Network Vizualization</h1>
+  <details>
+    <summary>Details</summary>
+    <p>To bound the nodes, select them. <br>
+      To rename the name of the node, click on it and correct.<br>
+      To reconnect the nodes, tap on the node by pressing the alt button on the keyboard.<br></p>
+  </details>
 </div>
 </body>
 </html>
