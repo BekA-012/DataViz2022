@@ -34,7 +34,7 @@ async function createForceLayout() {
 
   simulation.force("link").links(edges);
 
-  // change nodes, links
+  
   const getIndex = (data) => {
     const sourceId = data.source.id;
     const targetId = data.target.id;
@@ -72,7 +72,7 @@ async function createForceLayout() {
       .style("stroke-width", (d) => d.weight);
   };
 
-  // graph
+  
   const dimension = {
     width: window.innerWidth * 0.8,
     height: window.innerWidth * 0.8,
